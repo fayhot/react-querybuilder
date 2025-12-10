@@ -14,4 +14,5 @@ export const mongoDbToRqbOperatorMap = {
   $gte: '>=',
   $lt: '<',
   $lte: '<=',
+  $sort: 'sort',
 } satisfies { [o in MongoDbSupportedOperators]?: DefaultOperatorName };

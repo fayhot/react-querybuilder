@@ -91,7 +91,8 @@ function parseMongoDB(
       mdbOperator === '$gt' ||
       mdbOperator === '$gte' ||
       mdbOperator === '$lt' ||
-      mdbOperator === '$lte'
+      mdbOperator === '$lte' ||
+      mdbOperator === '$sort'
     ) {
       if (mdbOperator === '$ne' && keyValue === null) {
         if (fieldIsValid(field, 'notNull')) {
@@ -306,7 +307,7 @@ function parseMongoDB(
         let betweenRule: DefaultRuleType | false = false;
         let notRule: DefaultRuleType | DefaultRuleGroupType | false = false;
         const additionalOpKeys = objectKeys(additionalOperators).map(o => o.replace(/^\$/, ''));
-        const allOps = ['eq', 'ne', 'gte?', 'lte?', 'n?in', 'regex', 'not', ...additionalOpKeys];
+        const allOps = ['eq', 'sort', 'ne', 'gte?', 'lte?', 'n?in', 'regex', 'not', ...additionalOpKeys];
         const acceptedOpsRegExp = new RegExp(`^\\$(${allOps.join('|')})$`);
 
         const operators = objectKeys<Record<MongoDbSupportedOperators, unknown>>(keyValue)

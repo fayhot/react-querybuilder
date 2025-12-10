@@ -37,6 +37,8 @@ export const defaultRuleProcessorMongoDB: RuleProcessor = (
           }}}`;
     }
 
+    case 'sort': return `{"${field}":{"$sort":${value === 1 ? 1 : -1}}}`
+
     case 'contains':
       return valueIsField
         ? `{"$where":"this.${field}.includes(this.${value})"}`

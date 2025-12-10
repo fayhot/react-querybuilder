@@ -101,6 +101,7 @@ export type DefaultOperatorName =
   | '>'
   | '<='
   | '>='
+  | 'sort'
   | 'contains'
   | 'beginsWith'
   | 'endsWith'

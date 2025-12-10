@@ -10,5 +10,6 @@ export type MongoDbSupportedOperators =
   | '$lte'
   | '$ne'
   | '$nin'
+  | '$sort'
   | '$regex'
   | '$expr';
